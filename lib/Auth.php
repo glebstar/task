@@ -12,6 +12,21 @@ class Auth {
             return true;
         }
         
+        // check remember
+        if (isset($_COOKIE['auth_rememberid']) && isset($_COOKIE['auth_remembers'])) {
+            $salt = Db::getOne('SELECT salt FROM user WHERE id=?', array($_COOKIE['auth_rememberid']));
+            if (!$salt) {
+                return false;
+            }
+            
+            if ($_COOKIE['auth_remembers'] = md5($salt . Request::getUserAgent())) {
+                $_SESSION['user_id'] = $_COOKIE['auth_rememberid'];
+                return true;
+            }
+            
+            return false;
+        }
+        
         return false;
     }
     
@@ -27,6 +42,16 @@ class Auth {
             
             if ($userId) {
                 $_SESSION['user_id'] = $userId;
+                
+                // remember
+                if(Request::getCheckBox('remember')) {
+                    setcookie('auth_rememberid', $userId, time() + 3600*30, '/', $_SERVER['HTTP_HOST']);
+                    setcookie('auth_remembers', md5($salt . Request::getUserAgent()), time() + 3600*30, '/', $_SERVER['HTTP_HOST']);
+                } else {
+                    $this->_unsetCookie('auth_rememberid');
+                    $this->_unsetCookie('auth_remembers');
+                }
+                
                 return true;
             }
             
@@ -39,6 +64,8 @@ class Auth {
     private function _logout()
     {
         $_SESSION['user_id'] = null;
+        $this->_unsetCookie('auth_rememberid');
+        $this->_unsetCookie('auth_remembers');
     }
     
     private function _getHashPassword($password, $salt)
@@ -61,5 +88,12 @@ class Auth {
         }
         
         return $res;
+    }
+    
+    private function _unsetCookie($name)
+    {
+        setcookie($name, false, (time() - 2592000), '/', $_SERVER['HTTP_HOST']);
+        unset($_COOKIE[$name]);
+        unset($_REQUEST[$name]);
     }
 }

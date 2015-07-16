@@ -22,7 +22,7 @@
                     </div>
                     <div class="control-group">
                         <label class="checkbox">
-                            <input type="checkbox" class="uniform"> Remember me
+                            <input type="checkbox" class="uniform" name="remember"> Запомнить меня
                         </label>
                     </div>
                     <div class="form-actions">
