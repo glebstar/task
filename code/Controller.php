@@ -10,7 +10,8 @@ class Controller {
     private $_layout = 'layout';
     
     private $_otherLayouts = array(
-        'Controller_404' => 'layout_small'
+        'Controller_404'    => 'layout_small',
+        'Controller_Login'  => 'layout_small'
     );
 
 

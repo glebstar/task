@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 define('TASK_ROOT_DIR', dirname(__FILE__) . '/..');
 define('TASK_CODE_DIR', TASK_ROOT_DIR . '/code');

@@ -4,6 +4,12 @@ class App
 {
     public static function run()
     {
+        $auth = new Auth();
+        
+        if (!$auth->checkAuth()) {
+            self::showLogin();
+        }
+        
         /* redirect to lower case */
         if ( isset($_SERVER['REDIRECT_URL']) ) {
             if ( preg_match('~[A-Z]~', $_SERVER['REDIRECT_URL']) ) {
@@ -18,9 +24,7 @@ class App
 
         $redirect = isset($_SERVER['REDIRECT_URL']) ? $_SERVER['REDIRECT_URL'] : '';
         if (empty($redirect)) {
-            $obj = new Controller_Main();
-            $obj->run();
-            exit;
+            self::showMain();
         }
 
         $items = explode('/', $redirect);
@@ -68,9 +72,23 @@ class App
         $obj->run($action);
     }
     
+    public static function showMain()
+    {
+        $obj = new Controller_Main();
+        $obj->run();
+        exit;
+    }
+
     public static function show404()
     {
         $obj = new Controller_404();
+        $obj->run();
+        exit;
+    }
+    
+    public static function showLogin()
+    {
+        $obj = new Controller_Login();
         $obj->run();
         exit;
     }
