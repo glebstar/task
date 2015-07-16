@@ -72,35 +72,24 @@
                             </div>
 
                             <div id="dropdown-lists">
-                                <a class="item" href="#">
-                                    <span class="item-icon"><i class="icon-exclamation-sign"></i></span>
-                                    <span class="item-label">Notifications</span>
+                                <a class="item" href="/">
+                                    <span class="item-icon"><i class="icol-lightbulb"></i></span>
+                                    <span class="item-label">Мои задачи</span>
                                     <span class="item-count">4</span>
                                 </a>
-                                <a class="item" href="mail.html">
+                                <a class="item" href="/messages">
                                     <span class="item-icon"><i class="icon-envelope"></i></span>
-                                    <span class="item-label">Messages</span>
-                                    <span class="item-count">16</span>
+                                    <span class="item-label">Сообщения</span>
+                                    <span class="item-count">0</span>
                                 </a>
                             </div>
 
                             <div id="header-functions" class="pull-right">
                                 <div id="user-info" class="clearfix">
                                     <span class="info">
-                                        Welcome
-                                        <span class="name">Shana-chan</span>
+                                        Добро пожаловать
+                                        <span class="name">Вася Пупкин</span>
                                     </span>
-                                    <div class="avatar">
-                                        <a class="dropdown-toggle" href="#" data-toggle="dropdown">
-                                            <img src="assets/images/pp.jpg" alt="Avatar">
-                                        </a>
-                                        <ul class="dropdown-menu pull-right">
-                                            <li><a href="profile.html"><i class="icol-user"></i> My Profile</a></li>
-                                            <li><a href="#"><i class="icol-layout"></i> My Invoices</a></li>                                        
-                                            <li class="divider"></li>
-                                            <li><a href="/?logout=1"><i class="icol-key"></i> Logout</a></li>
-                                        </ul>
-                                    </div>
                                 </div>
                                 <div id="logout-ribbon">
                                     <a href="/?logout=1"><i class="icon-off"></i></a>
@@ -118,83 +107,19 @@
                             <aside id="sidebar">
                                 <nav id="navigation" class="collapse">
                                     <ul>
-                                        <li class="active">
-                                            <span title="General">
-                                                <i class="icon-home"></i>
-                                                <span class="nav-title">General</span>
+                                        <?php foreach ($this->_nav as $_n): ?>
+                                        <li<?php if ($_n['active']): ?> class="active"<?php endif; ?>>
+                                            <span title="<?php echo $_n['title']; ?>">
+                                                <i class="<?php echo $_n['icon']; ?>"></i>
+                                                <span class="nav-title"><?php echo $_n['title']; ?></span>
                                             </span>
                                             <ul class="inner-nav">
-                                                <li class="active"><a href="dashboard.html"><i class="icol-dashboard"></i> Dashboard</a></li>
-                                                <li><a href="calendar.html"><i class="icol-calendar-2"></i> Calendar</a></li>
-                                                <li><a href="icons.html"><i class="icol-lifebuoy"></i> Icons</a></li>
-                                                <li><a href="grids.html"><i class="icol-grid"></i> Grids</a></li>
-                                                <li><a href="typography.html"><i class="icol-font"></i> Typography</a></li>
+                                                <?php foreach ($_n['items'] as $_i): ?>
+                                                <li<?php if ($_i['active']): ?> class="active"<?php endif; ?>><a href="<?php echo $_i['href']; ?>"><i class="<?php echo $_i['icon']; ?>"></i> <?php if ($_i['active']): ?><b><?php endif; ?><?php echo $_i['title']; ?><?php if ($_i['active']): ?></b><?php endif; ?></a></li>
+                                                <?php endforeach; ?>
                                             </ul>
                                         </li>
-                                        <li>
-                                            <span title="Table">
-                                                <i class="icon-table"></i>
-                                                <span class="nav-title">Table</span>
-                                            </span>
-                                            <ul class="inner-nav">
-                                                <li><a href="tables.html"><i class="icol-style"></i> Static Tables</a></li>
-                                                <li><a href="responsive_tables.html"><i class="icol-hammer-screwdriver"></i> Responsive Tables</a></li>
-                                                <li><a href="data_tables.html"><i class="icol-table"></i> Data Tables</a></li>
-                                                <li><a href="detail_view.html"><i class="icol-eye"></i> Detail View Table</a></li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <span title="Statistic">
-                                                <i class="icon-graph"></i>
-                                                <span class="nav-title">Statistic</span>
-                                            </span>
-                                            <ul class="inner-nav">
-                                                <li><a href="statistic.html"><i class="icol-chart-curve"></i> Statistical Elements</a></li>
-                                                <li><a href="charts_gallery.html"><i class="icol-chart-pie"></i> Charts Gallery</a></li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <span title="Form">
-                                                <i class="icon-list"></i>
-                                                <span class="nav-title">Form</span>
-                                            </span>
-                                            <ul class="inner-nav">
-                                                <li><a href="form_layouts.html"><i class="icol-layout-select"></i> Form Layouts</a></li>
-                                                <li><a href="form_elements.html"><i class="icol-ui-text-field-password"></i> Form Elements</a></li>
-                                                <li><a href="form_wizard.html"><i class="icol-wand"></i> Form Wizard</a></li>
-                                                <li><a href="form_validation.html"><i class="icol-accept"></i> Form Validation</a></li>
-                                                <li><a href="wysiwyg.html"><i class="icol-pencil"></i> WYSIWYG</a></li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <span title="Elements">
-                                                <i class="icon-cogs"></i>
-                                                <span class="nav-title">Elements</span>
-                                            </span>
-                                            <ul class="inner-nav">
-                                                <li><a href="ui_bootstrap.html"><i class="icol-ui-tab-content"></i> Bootstrap Elements</a></li>
-                                                <li><a href="ui_components.html"><i class="icol-pipette"></i> Other Elements</a></li>
-                                                <li><a href="alerts.html"><i class="icol-error"></i> Alerts and Notifications</a></li>
-                                                <li><a href="boxes.html"><i class="icol-cog"></i> Widget Boxes</a></li>
-                                                <li><a href="buttons.html"><i class="icol-joystick"></i> Buttons</a></li>
-                                                <li><a href="file_uploader.html"><i class="icol-computer"></i> File Uploader</a></li>
-                                                <li><a href="file_manager.html"><i class="icol-databases"></i> File Manager</a>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <span title="Extra">
-                                                <i class="icon-gift"></i>
-                                                <span class="nav-title">Extra</span>
-                                            </span>
-                                            <ul class="inner-nav">
-                                                <li><a href="profile.html"><i class="icol-user"></i> Profile Page</a></li>
-                                                <li><a href="mail.html"><i class="icol-email"></i> Mail Page</a></li>
-                                                <li><a href="widgets.html"><i class="icol-ruby"></i> Custom Widgets</a></li>
-                                                <li><a href="gallery.html"><i class="icol-images"></i> Image Gallery</a>
-                                                <li><a href="contacts.html"><i class="icol-vcard"></i> Contact List</a></li>
-                                                <li><a href="404.html"><i class="icol-error"></i> Error Page (404)</a></li>
-                                            </ul>
-                                        </li>
+                                        <?php endforeach; ?>
                                     </ul>
                                 </nav>
                             </aside>
@@ -205,16 +130,16 @@
                                 <div id="main-header" class="page-header">
                                     <ul class="breadcrumb">
                                         <li>
-                                            <i class="icon-home"></i>MoonCake
+                                            <i class="icon-home"></i>Главная
                                             <span class="divider">&raquo;</span>
                                         </li>
                                         <li>
-                                            <a href="#">Dashboard</a>
+                                            <a href="#">Мои задачи</a>
                                         </li>
                                     </ul>
 
                                     <h1 id="main-heading">
-                                        Dashboard <span>This is the place where everything started</span>
+                                        <?php echo $this->_pageTitle['title']; ?> <span><?php echo $this->_pageTitle['sub']; ?></span>
                                     </h1>
                                 </div>
 
@@ -237,26 +162,26 @@
         </div>
 
         <!-- Core Scripts -->
-        <script src="assets/js/libs/jquery-1.8.2.min.js"></script>
-        <script src="bootstrap/js/bootstrap.min.js"></script>
-        <script src="assets/js/libs/jquery.placeholder.min.js"></script>
-        <script src="assets/js/libs/jquery.mousewheel.min.js"></script>
+        <script src="/assets/js/libs/jquery-1.8.2.min.js"></script>
+        <script src="/bootstrap/js/bootstrap.min.js"></script>
+        <script src="/assets/js/libs/jquery.placeholder.min.js"></script>
+        <script src="/assets/js/libs/jquery.mousewheel.min.js"></script>
 
         <!-- Template Script -->
-        <script src="assets/js/template.js"></script>
-        <script src="assets/js/setup.js"></script>
+        <script src="/assets/js/template.js"></script>
+        <script src="/assets/js/setup.js"></script>
 
         <!-- Customizer, remove if not needed -->
-        <script src="assets/js/customizer.js"></script>
+        <script src="/assets/js/customizer.js"></script>
 
         <!-- Uniform Script -->
-        <script src="plugins/uniform/jquery.uniform.min.js"></script>
+        <script src="/plugins/uniform/jquery.uniform.min.js"></script>
 
         <!-- jquery-ui Scripts -->
-        <script src="assets/jui/js/jquery-ui-1.8.24.min.js"></script>
-        <script src="assets/jui/jquery-ui.custom.min.js"></script>
-        <script src="assets/jui/timepicker/jquery-ui-timepicker.min.js"></script>
-        <script src="assets/jui/jquery.ui.touch-punch.min.js"></script>
+        <script src="/assets/jui/js/jquery-ui-1.8.24.min.js"></script>
+        <script src="/assets/jui/jquery-ui.custom.min.js"></script>
+        <script src="/assets/jui/timepicker/jquery-ui-timepicker.min.js"></script>
+        <script src="/assets/jui/jquery.ui.touch-punch.min.js"></script>
 
         <!-- Plugin Scripts -->
 
@@ -264,30 +189,30 @@
         <!--[if lt IE 9]>
         <script src="assets/js/libs/excanvas.min.js"></script>
         <![endif]-->
-        <script src="plugins/flot/jquery.flot.min.js"></script>
-        <script src="plugins/flot/plugins/jquery.flot.tooltip.min.js"></script>
-        <script src="plugins/flot/plugins/jquery.flot.pie.min.js"></script>
-        <script src="plugins/flot/plugins/jquery.flot.resize.min.js"></script>
+        <script src="/plugins/flot/jquery.flot.min.js"></script>
+        <script src="/plugins/flot/plugins/jquery.flot.tooltip.min.js"></script>
+        <script src="/plugins/flot/plugins/jquery.flot.pie.min.js"></script>
+        <script src="/plugins/flot/plugins/jquery.flot.resize.min.js"></script>
 
         <!-- Circular Stat -->
-        <script src="custom-plugins/circular-stat/circular-stat.min.js"></script>
+        <script src="/custom-plugins/circular-stat/circular-stat.min.js"></script>
 
         <!-- SparkLine -->
-        <script src="plugins/sparkline/jquery.sparkline.min.js"></script>
+        <script src="/plugins/sparkline/jquery.sparkline.min.js"></script>
 
         <!-- iButton -->
-        <script src="plugins/ibutton/jquery.ibutton.min.js"></script>
+        <script src="/plugins/ibutton/jquery.ibutton.min.js"></script>
 
         <!-- Full Calendar -->
-        <script src="plugins/fullcalendar/fullcalendar.min.js"></script>
+        <script src="/plugins/fullcalendar/fullcalendar.min.js"></script>
 
         <!-- DataTables -->
-        <script src="plugins/datatables/jquery.dataTables.min.js"></script>
-        <script src="plugins/datatables/TableTools/js/TableTools.min.js"></script>
-        <script src="plugins/datatables/dataTables.bootstrap.js"></script>
+        <script src="/plugins/datatables/jquery.dataTables.min.js"></script>
+        <script src="/plugins/datatables/TableTools/js/TableTools.min.js"></script>
+        <script src="/plugins/datatables/dataTables.bootstrap.js"></script>
 
         <!-- Demo Scripts -->
-        <script src="assets/js/demo/dashboard.js"></script>
+        <script src="/assets/js/demo/dashboard.js"></script>
 
     </body>
 

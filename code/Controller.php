@@ -17,6 +17,73 @@ class Controller {
 
     private $_scripts = array();
     private $_styles  = array();
+    
+    protected $_nav = array(
+        'tasks' => array(
+            'active' => false,
+            'icon' => 'icon-home',
+            'title' => 'Задачи',
+            'items' => array(
+                'my' => array(
+                    'active' => false,
+                    'href' => '/',
+                    'icon' => 'icol-lightbulb',
+                    'title' => 'Мои задачи'
+                ),
+                'all' => array(
+                    'active' => false,
+                    'href' => '/task/all',
+                    'icon' => 'icol-lightning',
+                    'title' => 'Все задачи'
+                ),
+                'add' => array(
+                    'active' => false,
+                    'href' => '/task/add',
+                    'icon' => 'icol-add',
+                    'title' => 'Создать задачу'
+                )
+            )
+        ),
+        
+        'users' => array(
+            'active' => false,
+            'icon' => 'icon-official',
+            'title' => 'Пользователи',
+            'items' => array(
+                'all' => array(
+                    'active' => false,
+                    'href' => '/users',
+                    'icon' => 'icol-group',
+                    'title' => 'Все пользователи'
+                ),
+                'add' => array(
+                    'active' => false,
+                    'href' => '/users/add',
+                    'icon' => 'icol-add',
+                    'title' => 'Добавить пользователя'
+                )
+            )
+        ),
+        
+        'messages' => array(
+            'active' => false,
+            'icon' => 'icon-comments',
+            'title' => 'Сообщения',
+            'items' => array(
+                'my' => array(
+                    'active' => false,
+                    'href' => '/messages',
+                    'icon' => 'icol-email',
+                    'title' => 'Мои сообщения'
+                )
+            )
+        )
+    );
+    
+    protected $_pageTitle = array(
+        'title' => '',
+        'sub' => ''
+    );
 
     public function run($action='index') {
         if (!$action) {

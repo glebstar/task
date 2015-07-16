@@ -45,8 +45,8 @@ class Auth {
                 
                 // remember
                 if(Request::getCheckBox('remember')) {
-                    setcookie('auth_rememberid', $userId, time() + 3600*30, '/', $_SERVER['HTTP_HOST']);
-                    setcookie('auth_remembers', md5($salt . Request::getUserAgent()), time() + 3600*30, '/', $_SERVER['HTTP_HOST']);
+                    setcookie('auth_rememberid', $userId, time() + 3600*24*30, '/', $_SERVER['HTTP_HOST']);
+                    setcookie('auth_remembers', md5($salt . Request::getUserAgent()), time() + 3600*24*30, '/', $_SERVER['HTTP_HOST']);
                 } else {
                     $this->_unsetCookie('auth_rememberid');
                     $this->_unsetCookie('auth_remembers');
