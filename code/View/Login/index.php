@@ -33,39 +33,37 @@
             </section>
             <section id="register-form" class="login-inner-form" data-angle="90">
                 <h1>Регистрация</h1>
-                <form class="form-vertical" action="/registration">
+                <form id="nuform" class="form-vertical">
+                    <div id="newusererror" class="control-group error hide">
+                        <label></label>
+                    </div>
                     <div class="control-group">
                         <label class="control-label">Логин</label>
-                        <div class="controls">
-                            <input type="text">
-                        </div>
+                        <input id="nulogin" class="nu" type="text">
+                        <span class="help-block hide"></span>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Пароль</label>
-                        <div class="controls">
-                            <input type="password">
-                        </div>
+                        <input id="nupassword" class="nu" type="password">
+                        <span class="help-block hide"></span>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Еще раз пароль</label>
-                        <div class="controls">
-                            <input type="password">
-                        </div>
+                        <input id="nucpassword" class="nu" type="password">
+                        <span class="help-block hide"></span>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Имя</label>
-                        <div class="controls">
-                            <input type="text">
-                        </div>
+                        <input id="nufirstname" class="nu" type="text">
+                        <span class="help-block hide"></span>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Фамилия</label>
-                        <div class="controls">
-                            <input type="text">
-                        </div>
+                        <input id="nulastname" class="nu" type="text">
+                        <span class="help-block hide"></span>
                     </div>
                     <div class="form-actions">
-                        <button type="submit" class="btn btn-warning btn-block btn-large">Регистрация</button>
+                        <button id="nubtn" class="btn btn-warning btn-block btn-large">Регистрация</button>
                     </div>
                 </form>
             </section>

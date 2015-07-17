@@ -38,7 +38,7 @@ class Auth {
         
         $salt = Db::getOne('SELECT salt FROM user WHERE login=?', array($login));
         if ($salt) {
-            $userId = Db::getOne('SELECT id FROM user WHERE login=? AND password=?', array($login, $this->_getHashPassword($password, $salt)));
+            $userId = Db::getOne('SELECT id FROM user WHERE login=? AND password=?', array($login, $this->getHashPassword($password, $salt)));
             
             if ($userId) {
                 $_SESSION['user_id'] = $userId;
@@ -68,12 +68,12 @@ class Auth {
         $this->_unsetCookie('auth_remembers');
     }
     
-    private function _getHashPassword($password, $salt)
+    public function getHashPassword($password, $salt)
     {   
         return md5($password . $salt);
     }
 
-    private function _getNewSalt()
+    public function getNewSalt()
     {
         $chars = array(
             'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz',

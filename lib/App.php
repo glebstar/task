@@ -4,10 +4,14 @@ class App
 {
     public static function run()
     {
-        $auth = new Auth();
+        $redirect = isset($_SERVER['REDIRECT_URL']) ? $_SERVER['REDIRECT_URL'] : '';
         
-        if (!$auth->checkAuth()) {
-            self::showLogin();
+        if ($redirect != '/registration') {
+            $auth = new Auth();
+
+            if (!$auth->checkAuth()) {
+                self::showLogin();
+            }
         }
         
         /* redirect to lower case */
@@ -22,7 +26,7 @@ class App
         $pathCtrl = TASK_CODE_DIR . '/Controller/';
         $classCtrl = 'Controller_';
 
-        $redirect = isset($_SERVER['REDIRECT_URL']) ? $_SERVER['REDIRECT_URL'] : '';
+        
         if (empty($redirect)) {
             self::showMain();
         }

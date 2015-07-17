@@ -25,13 +25,15 @@ $(document).ready(function() {
         newTaskSave();
     });
     
-    $('.span5, .span4').keydown(function(){
+    $('.span5, .span4, .nu').keydown(function(){
         $(this).parent().removeClass('error').children('.help-block').hide();
         $('#newtaskerror').hide();
+        $('#newusererror').hide();
     });
-    $('.span5').click(function(){
+    $('.span5, .nu').click(function(){
         $(this).parent().removeClass('error').children('.help-block').hide();
         $('#newtaskerror').hide();
+        $('#newusererror').hide();
     });
     
     $('#newtaskclosebtn').click(function(){

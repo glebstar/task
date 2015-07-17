@@ -37,6 +37,8 @@
         <!-- Core Scripts -->
         <script src="/assets/js/libs/jquery-1.8.2.min.js"></script>
         <script src="/assets/js/libs/jquery.placeholder.min.js"></script>
+        <script src="/js/reg.js?v=<?php echo $this->_pars['script_version'] ?>"></script>
+        <script src="/js/main.js?v=<?php echo $this->_pars['script_version'] ?>"></script>
         <?php foreach ($this->_scripts as $_s): ?>
         <script src="<?php echo $_s; ?>?v=<?php echo $this->_pars['script_version'] ?>"></script>
         <?php endforeach; ?>
