@@ -9,7 +9,7 @@ class Model_Task
                        comp.id AS comp_id, comp.value AS comp,
                        st.id AS status_id, st.value AS status
                 FROM task AS t
-                LEFT JOIN user AS cu ON cu.id=t.user_id
+                LEFT JOIN user AS cu ON cu.id=t.create_user_id
                 LEFT JOIN user AS u ON u.id=t.user_id
                 LEFT JOIN task_urg AS urg ON urg.id=t.task_urg_id
                 LEFT JOIN task_comp AS comp ON comp.id=t.task_comp_id
