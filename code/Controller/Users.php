@@ -9,5 +9,7 @@ class Controller_Users extends Controller
         
         $this->_pageTitle['title'] = 'Все пользователи';
         $this->_pageTitle['sub'] = 'Список всех пользователей';
+        
+        $this->_addPar('users', Model_User::getUsers('id'));
     }
 }

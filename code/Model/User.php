@@ -2,9 +2,13 @@
 
 class Model_User
 {
-    public static function getUsers()
+    public static function getUsers($orderBy=false)
     {
-        return Db::getAll('SELECT id, firstname, lastname FROM user ORDER BY lastname');
+        if (!$orderBy) {
+            $orderBy = 'lastname';
+        }
+        
+        return Db::getAll('SELECT id, login, firstname, lastname FROM user ORDER BY ' . $orderBy);
     }
     
     public static function getUserInfo()

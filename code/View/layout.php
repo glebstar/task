@@ -210,6 +210,7 @@
         <?php endforeach; ?>
         
         <?php require_once TASK_CODE_DIR . '/View/layout/newtaskmodal.php'; ?>
+        <?php require_once TASK_CODE_DIR . '/View/layout/newusermodal.php'; ?>
     </body>
 
 </html>

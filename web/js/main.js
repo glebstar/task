@@ -3,6 +3,10 @@ $(document).ready(function() {
         $('#newtaskmodal').modal();
     });
     
+    $('#newuserbtn').click(function(){
+        $('#newusermodal').modal();
+    });
+    
     $('#newtaskmodal').on('shown', function () {      
         $('#newtaskform').show();
         $('#newtasksavebtn').show();

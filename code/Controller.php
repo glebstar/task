@@ -59,9 +59,10 @@ class Controller {
                 ),
                 'add' => array(
                     'active' => false,
-                    'href' => '/users/add',
+                    'href' => '#newuser',
                     'icon' => 'icol-add',
-                    'title' => 'Добавить пользователя'
+                    'title' => 'Добавить пользователя',
+                    'id' => 'newuserbtn'
                 )
             )
         ),

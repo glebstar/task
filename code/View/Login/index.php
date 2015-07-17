@@ -33,21 +33,33 @@
             </section>
             <section id="register-form" class="login-inner-form" data-angle="90">
                 <h1>Регистрация</h1>
-                <form class="form-vertical" action="dashboard.html">
+                <form class="form-vertical" action="/registration">
                     <div class="control-group">
-                        <label class="control-label">Email</label>
+                        <label class="control-label">Логин</label>
                         <div class="controls">
                             <input type="text">
                         </div>
                     </div>
                     <div class="control-group">
-                        <label class="control-label">Password</label>
+                        <label class="control-label">Пароль</label>
                         <div class="controls">
                             <input type="password">
                         </div>
                     </div>
                     <div class="control-group">
-                        <label class="control-label">Fullname</label>
+                        <label class="control-label">Еще раз пароль</label>
+                        <div class="controls">
+                            <input type="password">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Имя</label>
+                        <div class="controls">
+                            <input type="text">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Фамилия</label>
                         <div class="controls">
                             <input type="text">
                         </div>

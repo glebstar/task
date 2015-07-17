@@ -1,6 +1,10 @@
 <p>
-    <b>#<?php echo $this->_pars['task']['task_id']; ?></b> <span class="label label-info"><?php echo date_format(new DateTime($this->_pars['task']['task_create_time']), 'd.m.Y в H:i'); ?></span>
+    <b>#<?php echo $this->_pars['task']['task_id']; ?></b> Создал: <?php echo $this->_pars['task']['cuser']; ?> <span class="label label-info"><?php echo date_format(new DateTime($this->_pars['task']['task_create_time']), 'd.m.Y в H:i'); ?></span>
 </p>
+<p>
+    Исполнитель: <b><?php echo $this->_pars['task']['user']; ?></b>
+</p>
+<br />
 <p><?php echo nl2br($this->_pars['task']['task_text']) ?></p>
 <br />
 <p>
