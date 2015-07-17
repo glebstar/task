@@ -21,7 +21,7 @@ class Controller {
     protected $_nav = array(
         'tasks' => array(
             'active' => false,
-            'icon' => 'icon-home',
+            'icon' => 'icon-tasks',
             'title' => 'Задачи',
             'items' => array(
                 'my' => array(
@@ -38,9 +38,10 @@ class Controller {
                 ),
                 'add' => array(
                     'active' => false,
-                    'href' => '/task/add',
+                    'href' => '#newtaskmodal',
                     'icon' => 'icol-add',
-                    'title' => 'Создать задачу'
+                    'title' => 'Создать задачу',
+                    'id' => 'newtaskmodalbtn'
                 )
             )
         ),
@@ -110,7 +111,16 @@ class Controller {
         }
         
         $this->$action();
+        
+        $this->_preShow();
+        
         $this->_render();
+    }
+    
+    protected function _preShow() {
+        $this->_addPar('allusers', Model_User::getUsers());
+        $this->_addPar('userinfo', Model_User::getUserInfo());
+        $this->_addPar('usertaskcount', Model_Task::getCountForUser($_SESSION['user_id']));
     }
 
     protected function _addScript($script) {

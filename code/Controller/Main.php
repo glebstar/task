@@ -9,5 +9,7 @@ class Controller_Main extends Controller
         
         $this->_pageTitle['title'] = 'Мои задачи';
         $this->_pageTitle['sub'] = 'Список моих активных задач';
+        
+        $this->_addPar('tasks', Model_Task::getAllForUser($_SESSION['user_id']));
     }
 }

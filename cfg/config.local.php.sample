@@ -1,0 +1,5 @@
+<?php
+
+$mainCfg['db']['user'] = 'user';
+$mainCfg['db']['password'] = 'password';
+$mainCfg['display_errors'] = 'On';

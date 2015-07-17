@@ -96,4 +96,9 @@ class Auth {
         unset($_COOKIE[$name]);
         unset($_REQUEST[$name]);
     }
+    
+    public static function getUserInfo($userId)
+    {
+        return Db::getRow('SELECT id, login, firstname, lastname FROM user WHERE id=?', array($userId));
+    }
 }

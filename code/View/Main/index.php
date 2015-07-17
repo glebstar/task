@@ -1,1 +1,2 @@
-<h4>Список здесь</h4>
+<?php
+require_once TASK_CODE_DIR . '/View/layout/tasks.php';

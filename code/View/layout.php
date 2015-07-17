@@ -75,7 +75,7 @@
                                 <a class="item" href="/">
                                     <span class="item-icon"><i class="icol-lightbulb"></i></span>
                                     <span class="item-label">Мои задачи</span>
-                                    <span class="item-count">4</span>
+                                    <span class="item-count"><?php echo $this->_pars['usertaskcount']; ?></span>
                                 </a>
                                 <a class="item" href="/messages">
                                     <span class="item-icon"><i class="icon-envelope"></i></span>
@@ -88,7 +88,7 @@
                                 <div id="user-info" class="clearfix">
                                     <span class="info">
                                         Добро пожаловать
-                                        <span class="name">Вася Пупкин</span>
+                                        <span class="name"><?php echo $this->_pars['userinfo']['lastname'] . ' ' . $this->_pars['userinfo']['firstname']; ?></span>
                                     </span>
                                 </div>
                                 <div id="logout-ribbon">
@@ -115,7 +115,7 @@
                                             </span>
                                             <ul class="inner-nav">
                                                 <?php foreach ($_n['items'] as $_i): ?>
-                                                <li<?php if ($_i['active']): ?> class="active"<?php endif; ?>><a href="<?php echo $_i['href']; ?>"><i class="<?php echo $_i['icon']; ?>"></i> <?php if ($_i['active']): ?><b><?php endif; ?><?php echo $_i['title']; ?><?php if ($_i['active']): ?></b><?php endif; ?></a></li>
+                                                <li<?php if ($_i['active']): ?> class="active"<?php endif; ?>><a href="<?php echo $_i['href']; ?>"<?php if (isset($_i['id'])): ?> id="<?php echo $_i['id']; ?>"<?php endif; ?>><i class="<?php echo $_i['icon']; ?>"></i> <?php if ($_i['active']): ?><b><?php endif; ?><?php echo $_i['title']; ?><?php if ($_i['active']): ?></b><?php endif; ?></a></li>
                                                 <?php endforeach; ?>
                                             </ul>
                                         </li>
@@ -128,16 +128,6 @@
 
                             <section id="main" class="clearfix">
                                 <div id="main-header" class="page-header">
-                                    <ul class="breadcrumb">
-                                        <li>
-                                            <i class="icon-home"></i>Главная
-                                            <span class="divider">&raquo;</span>
-                                        </li>
-                                        <li>
-                                            <a href="#">Мои задачи</a>
-                                        </li>
-                                    </ul>
-
                                     <h1 id="main-heading">
                                         <?php echo $this->_pageTitle['title']; ?> <span><?php echo $this->_pageTitle['sub']; ?></span>
                                     </h1>
@@ -213,7 +203,13 @@
 
         <!-- Demo Scripts -->
         <script src="/assets/js/demo/dashboard.js"></script>
-
+        <script src="/js/main.js?v=<?php echo $this->_pars['script_version'] ?>"></script>
+        
+        <?php foreach ($this->_scripts as $_s): ?>
+        <script src="<?php echo $_s; ?>?v=<?php echo $this->_pars['script_version'] ?>"></script>
+        <?php endforeach; ?>
+        
+        <?php require_once TASK_CODE_DIR . '/View/layout/newtaskmodal.php'; ?>
     </body>
 
 </html>

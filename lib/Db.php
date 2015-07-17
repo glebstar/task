@@ -33,6 +33,12 @@ class Db
         return $connect->fetch(PDO::FETCH_ASSOC);
     }
     
+    public static function getAll($sql, $bind=array()) {
+        $connect = self::_getConnect()->prepare($sql);
+        $connect->execute($bind);
+        return $connect->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     public static function insertArray($table, $data) {
         $fields = '';
         $signs = '';
@@ -46,6 +52,27 @@ class Db
         $signs = preg_replace('/,$/', '', $signs);
         
         $sql = "INSERT INTO {$table} ($fields) VALUES($signs)";
+        
+        $connect = self::_getConnect()->prepare($sql);
+        $connect->execute($values);
+    }
+    
+    public static function updateWithArray($table, $id, $updateData, $idColumnName='id', $isChangeIdColumn=false)
+    {     
+        if ( isset($updateData[$idColumnName]) && !$isChangeIdColumn ) {
+            throw new Exception('Try changing key field');
+        }
+        
+        $fields = '';
+        $values = array();
+        foreach ($updateData as $_key=>$_value) {
+            $fields .= "{$_key} = ?,";
+            $values[] = $_value;
+        }
+        $fields = preg_replace('/,$/', '', $fields);
+        $values[] = $id;
+        
+        $sql = "UPDATE {$table} SET {$fields} WHERE {$idColumnName}=?";
         
         $connect = self::_getConnect()->prepare($sql);
         $connect->execute($values);

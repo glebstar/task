@@ -1,1 +1,2 @@
-<p>Список всех задач здесь</p>
+<?php
+require_once TASK_CODE_DIR . '/View/layout/tasks.php';

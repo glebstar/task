@@ -9,7 +9,7 @@ $mainCfg = array(
     ),
     'error_level'     => E_ALL,
     'display_errors'  => 'Off',
-    'script_version'  => 1
+    'script_version'  => 2
 );
 
 if (file_exists(TASK_ROOT_DIR . '/cfg/config.local.php')) {
