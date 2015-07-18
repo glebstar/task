@@ -119,9 +119,11 @@ class Controller {
     }
     
     protected function _preShow() {
-        $this->_addPar('allusers', Model_User::getUsers());
-        $this->_addPar('userinfo', Model_User::getUserInfo());
-        $this->_addPar('usertaskcount', Model_Task::getCountForUser($_SESSION['user_id']));
+        if (isset($_SESSION['user_id'])) {
+            $this->_addPar('allusers', Model_User::getUsers());
+            $this->_addPar('userinfo', Model_User::getUserInfo());
+            $this->_addPar('usertaskcount', Model_Task::getCountForUser($_SESSION['user_id']));
+        }
     }
 
     protected function _addScript($script) {
