@@ -19,7 +19,7 @@ class Auth {
                 return false;
             }
             
-            if ($_COOKIE['auth_remembers'] = md5($salt . Request::getUserAgent())) {
+            if ($_COOKIE['auth_remembers'] == md5($salt . Request::getUserAgent())) {
                 $_SESSION['user_id'] = $_COOKIE['auth_rememberid'];
                 return true;
             }
