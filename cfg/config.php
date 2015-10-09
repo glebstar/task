@@ -9,7 +9,7 @@ $mainCfg = array(
     ),
     'error_level'           => E_ALL,
     'display_errors'        => 'Off',
-    'script_version'        => 4,
+    'script_version'        => 5,
     'social_login_redirect' => 'http://task.mx'
 );
 

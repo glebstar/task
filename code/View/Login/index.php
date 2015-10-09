@@ -13,7 +13,11 @@
 
         <div id="login-circle">
             <section id="login-form" class="login-inner-form active" data-angle="0">
-                <h1>Login</h1>
+                <div id="social-login">
+                    <h3>Войти через:</h3>
+                    <div id="uLogin" data-ulogin="display=small;fields=first_name,last_name;providers=vkontakte,odnoklassniki,mailru,facebook;hidden=other;redirect_uri=<?php echo urlencode($this->_pars['social_login_redirect']); ?>"></div>
+                </div>
+                <h3 style="margin-left: 15px;">Login:</h3>
                 <form class="form-vertical" action="/" method="post">
                     <div class="control-group<?php if(isset($this->_pars['login_error'])):?> error<?php endif; ?>">
                         <?php if(isset($this->_pars['login_error'])):?><label class="control-label" for="input-username">Логин или пароль неверны</label><?php endif; ?>
@@ -30,10 +34,7 @@
                         <button type="submit" class="btn btn-info btn-block btn-large">Login</button>
                     </div>
                 </form>
-                <div id="social-login">
-                    <h4>Войти через:</h4>
-                    <div id="uLogin" data-ulogin="display=small;fields=first_name,last_name;providers=vkontakte,odnoklassniki,mailru,facebook;hidden=other;redirect_uri=<?php echo urlencode($this->_pars['social_login_redirect']); ?>"></div>
-                </div>
+                
             </section>
             <section id="register-form" class="login-inner-form" data-angle="90">
                 <h1>Регистрация</h1>
