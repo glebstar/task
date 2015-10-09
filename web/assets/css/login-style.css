@@ -16,3 +16,7 @@
 @import url("form.css");
 @import url("button.css");
 @import url("icons.css");
+
+#social-login {
+    padding-left: 15px;
+}

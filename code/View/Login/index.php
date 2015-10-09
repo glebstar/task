@@ -20,6 +20,7 @@
                         <input type="text" placeholder="Login" id="input-username" name="login" class="big"<?php if (isset($_POST['login'])):?> value="<?php echo $_POST['login']; ?>"<?php endif; ?>>
                         <input type="password" placeholder="Password" id="input-password" name="password" class="big">
                     </div>
+                    
                     <div class="control-group">
                         <label class="checkbox">
                             <input type="checkbox" class="uniform" name="remember"> Запомнить меня
@@ -29,7 +30,10 @@
                         <button type="submit" class="btn btn-info btn-block btn-large">Login</button>
                     </div>
                 </form>
-
+                <div id="social-login">
+                    <h4>Войти через:</h4>
+                    <div id="uLogin" data-ulogin="display=small;fields=first_name,last_name;providers=vkontakte,odnoklassniki,mailru,facebook;hidden=other;redirect_uri=<?php echo urlencode($this->_pars['social_login_redirect']); ?>"></div>
+                </div>
             </section>
             <section id="register-form" class="login-inner-form" data-angle="90">
                 <h1>Регистрация</h1>

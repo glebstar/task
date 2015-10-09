@@ -7,9 +7,10 @@ $mainCfg = array(
         'user'      => '*',
         'password'  => '*'
     ),
-    'error_level'     => E_ALL,
-    'display_errors'  => 'Off',
-    'script_version'  => 3
+    'error_level'           => E_ALL,
+    'display_errors'        => 'Off',
+    'script_version'        => 4,
+    'social_login_redirect' => 'http://task.mx'
 );
 
 if (file_exists(TASK_ROOT_DIR . '/cfg/config.local.php')) {

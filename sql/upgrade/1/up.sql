@@ -1,0 +1,3 @@
+ALTER TABLE `user`
+    ADD COLUMN is_social TINYINT(1) DEFAULT 0,
+    ADD COLUMN social_id VARCHAR(100) DEFAULT '---';

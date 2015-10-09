@@ -9,12 +9,26 @@ class Controller_Login extends Controller
         $this->_addStyle('/assets/css/login-style.css');
         $this->_addScript('/assets/js/login.js');
         $this->_addScript('/plugins/uniform/jquery.uniform.min.js');
+        $this->_addScript('http://ulogin.ru/js/ulogin.js');
+        
+        global $mainCfg;
+        $this->_addPar('social_login_redirect', $mainCfg['social_login_redirect']);
         
         $this->_checkLogin();
     }
     
     private function _checkLogin()
     {
+        // social login
+        if (isset($_POST['token'])) {
+            try {
+                $_SESSION['user_id'] = Model_User::checkSocialUser();
+                App::showMain();
+            } catch (Model_User_Exception $e) {
+                $this->_addPar('login_error', true);
+            }
+        }
+        
         $postLogin = Request::getVar('login');
         if ($postLogin) {
             $auth = new Auth();
